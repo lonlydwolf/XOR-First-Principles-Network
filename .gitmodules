@@ -1,0 +1,9 @@
+[submodule "cpp"]
+	path = cpp
+	url = git@github.com:lonlydwolf/Cpp-Neural-Network.git
+[submodule "csharp"]
+	path = csharp
+	url = git@github.com:lonlydwolf/C-Sharp-Neural-Network.git
+[submodule "python"]
+	path = python
+	url = git@github.com:lonlydwolf/Python-Neural-Network.git
