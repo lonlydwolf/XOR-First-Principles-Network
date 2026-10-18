@@ -1,0 +1,28 @@
+name: Python reference
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  reference:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          submodules: recursive
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Check gradients, convergence, and paths
+        run: python -m unittest discover -s python/tests -v
+      - name: Run the seeded example
+        run: python python/examples/xor_demo.py --seed 0
